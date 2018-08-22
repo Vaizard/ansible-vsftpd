@@ -94,8 +94,8 @@ MIT
 Author Information
 ------------------
 
-Original author: Konstantin Kruglov (kruglovk@gmail.com), https://github.com/k0st1an
-Current maintainer: Pavel Stratil, Vaizard Institute
+- Original author: Konstantin Kruglov (kruglovk@gmail.com), https://github.com/k0st1an
+- Current maintainer: Pavel Stratil, Vaizard Institute
 
 
 Cli command
