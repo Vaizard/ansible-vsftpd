@@ -1,16 +1,16 @@
 ---
-- shell: "ls -1 {{ vsftpd_local_root }}/{{ item.username }}"
+- shell: 'ls -1 {{ vsftpd_local_root }}/{{ item.username }}'
   register: contents
 
 - set_fact:
-    managed: "{{ managed | default([]) + [ inner_item.path ] }}"
+    managed: "{{ managed | default([]) + [ inner_item.path | realpath | basename ] }}"
   with_items: "{{ item.bindpath }}"
   loop_control:
     loop_var: inner_item
 
 - debug: msg="{{ vsftpd_local_root }}/{{ item.username }}/{{ inner_item | realpath | basename }}" verbosity=3
   with_items: "{{ contents.stdout_lines }}"
-  when: inner_item not in managed
+  when: not (managed | intersect([inner_item]))
   loop_control:
     loop_var: inner_item
 
@@ -21,7 +21,7 @@
     state: unmounted
     name: "{{ vsftpd_local_root }}/{{ item.username }}/{{ inner_item | realpath | basename }}"
   with_items: "{{ contents.stdout_lines }}"
-  when: inner_item not in managed
+  when: not (managed | intersect([inner_item]))
   loop_control:
     loop_var: inner_item
 
@@ -32,6 +32,6 @@
     state: absent
     name: "{{ vsftpd_local_root }}/{{ item.username }}/{{ inner_item | realpath | basename }}"
   with_items: "{{ contents.stdout_lines }}"
-  when: inner_item not in managed
+  when: not (managed | intersect([inner_item]))
   loop_control:
     loop_var: inner_item
