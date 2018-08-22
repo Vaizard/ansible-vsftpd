@@ -30,8 +30,8 @@ Synopsis
 Tested
 ------
 
-  - Debian Jessie
-  - Ansible v1.9.1
+  - Ubuntu 18.04
+  - Ansible 2.6
 
 
 Role Variables
@@ -94,11 +94,8 @@ MIT
 Author Information
 ------------------
 
-GitHub: https://github.com/k0st1an
-
-Author: Konstantin Kruglov
-
-Contact: kruglovk@gmail.com
+Original author: Konstantin Kruglov (kruglovk@gmail.com), https://github.com/k0st1an
+Current maintainer: Pavel Stratil, Vaizard Institute
 
 
 Cli command
