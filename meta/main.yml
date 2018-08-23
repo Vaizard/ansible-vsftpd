@@ -1,15 +1,18 @@
 ---
 galaxy_info:
-  author: Konstantin Kruglov
-  description: Install FTP server - vsftpd
-  issue_tracker_url: https://github.com/k0st1an/ansible-vsftpd/issues
+  author: Vaizard Institute
+  description: Installs and sets up the VSFTPd server
+  issue_tracker_url: https://github.com/vaizard/mage-vsftpd/issues
   license: MIT
-  min_ansible_version: 1.2
+  min_ansible_version: 2.6
 
   platforms:
   - name: Debian
     versions:
     - jessie
+  - name: Ubuntu
+    versions:
+    - !8.04
 
   categories:
   - networking
